@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - 80:80  
+      - 8765:8765
+    command: ["/usr/local/scripts/startup.sh"]
+    volumes:
+      - ./html:/var/www/html
+      - ./php.ini:/usr/local/etc/php/php.ini
+      - ./startup.sh:/usr/local/scripts/startup.sh
